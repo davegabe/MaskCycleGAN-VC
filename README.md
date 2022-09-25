@@ -100,12 +100,11 @@ python -W ignore::UserWarning -m mask_cyclegan_vc.train \
     --epochs_per_plot 10 \
     --num_epochs 6172 \
     --batch_size 1 \
-    --lr 5e-4 \
     --decay_after 1e4 \
     --sample_rate 22050 \
     --num_frames 64 \
     --max_mask_len 25 \
-    --gpu_ids 0 \
+    --gpu_ids 0
 ```
 
 To continue training from a previous checkpoint in the case that training is suspended, add the argument `--continue_train` while keeping all others the same. The model saver class will automatically load the most recently saved checkpoint and resume training.
@@ -129,7 +128,7 @@ python -W ignore::UserWarning -m mask_cyclegan_vc.test \
     --speaker_B_id VCC2TF1 \
     --ckpt_dir /data1/cycleGAN_VC3/mask_cyclegan_vc_VCC2SF3_VCC2TF1/ckpts \
     --load_epoch 500 \
-    --model_name generator_A2B \
+    --model_name generator_A2B
 ```
 
 Toggle between A->B and B->A conversion by setting `--model_name` as either `generator_A2B` or `generator_B2A`.

@@ -360,17 +360,17 @@ class MaskCycleGANVCTraining(object):
             # Save each model checkpoint
             if self.logger.epoch % self.epochs_per_save == 0:
                 self.saver.save(self.logger.epoch, self.generator_A2B,
-                                self.generator_optimizer, None, args.device, "generator_A2B")
+                                self.generator_optimizer, None, self.device, "generator_A2B")
                 self.saver.save(self.logger.epoch, self.generator_B2A,
-                                self.generator_optimizer, None, args.device, "generator_B2A")
+                                self.generator_optimizer, None, self.device, "generator_B2A")
                 self.saver.save(self.logger.epoch, self.discriminator_A,
-                                self.discriminator_optimizer, None, args.device, "discriminator_A")
+                                self.discriminator_optimizer, None, self.device, "discriminator_A")
                 self.saver.save(self.logger.epoch, self.discriminator_B,
-                                self.discriminator_optimizer, None, args.device, "discriminator_B")
+                                self.discriminator_optimizer, None, self.device, "discriminator_B")
                 self.saver.save(self.logger.epoch, self.discriminator_A2,
-                                self.discriminator_optimizer, None, args.device, "discriminator_A2")
+                                self.discriminator_optimizer, None, self.device, "discriminator_A2")
                 self.saver.save(self.logger.epoch, self.discriminator_B2,
-                                self.discriminator_optimizer, None, args.device, "discriminator_B2")
+                                self.discriminator_optimizer, None, self.device, "discriminator_B2")
 
             self.logger.end_epoch()
 

@@ -137,3 +137,7 @@ results/
 
 .vscode
 *zip
+*.pickle
+*.npz
+cache/
+model/

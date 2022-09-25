@@ -55,7 +55,7 @@ class BaseArgParser(object):
                                  help='Default uses latest cached model if continue train or eval set')
 
 
-    def parse_args(self):
+    def parse_args(self, args=None):
         """
         Function that parses arguments, create checkpoints and vizualization directory, and sets up gpu device.
 
@@ -64,7 +64,10 @@ class BaseArgParser(object):
         args : Namespace
             Parsed program arguments
         """
-        args = self.parser.parse_args()
+        if args is None:
+            args = self.parser.parse_args()
+        else:
+            args = self.parser.parse_args(args)
 
         # Limit sources of nondeterministic behavior
         os.environ['PYTHONHASHSEED'] = str(args.seed)
