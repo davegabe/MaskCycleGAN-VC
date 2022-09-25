@@ -102,11 +102,15 @@ class ModelSaver(object):
             optimizer (:obj:`torch.optim.Optimizer`, optional): Initialized optimizer object
             scheduler (:obj:`torch.optim.lr_scheduler`, optional): Initilazied scheduler object
         """
-        ckpt_paths = sorted([name for name in os.listdir(
-            self.ckpt_dir) if name.split(".", 1)[1] == "pth.tar"])
+        # Check if in self.ckpt_dir there is a pth.tar file
+        available_ckpts = False
+        for file in os.listdir(self.ckpt_dir):
+            if file.endswith(".pth.tar"):
+                available_ckpts = True
+                break
 
         if ckpt_path is None:
-            if model_name and hasattr(self.args, 'load_epoch'):
+            if available_ckpts and model_name and hasattr(self.args, 'load_epoch'):
                 file_name = f'{str(self.args.load_epoch).zfill(5)}_{model_name}.pth.tar'
                 ckpt_path = os.path.join(self.ckpt_dir, file_name)
             else:
