@@ -14,7 +14,7 @@ import torch.utils.data as data
 from mask_cyclegan_vc.model import Generator, Discriminator
 from args.cycleGAN_train_arg_parser import CycleGANTrainArgParser
 from dataset.vc_dataset import VCDataset
-from mask_cyclegan_vc.utils import decode_melspectrogram, get_mel_spectrogram_fig
+from mask_cyclegan_vc.utils import decode_melspectrogram #, get_mel_spectrogram_fig
 from logger.train_logger import TrainLogger
 from saver.model_saver import ModelSaver
 
@@ -318,16 +318,16 @@ class MaskCycleGANVCTraining(object):
             if self.logger.epoch % self.epochs_per_plot == 0:
                 with torch.no_grad():
                     # Log Mel-spectrograms .png
-                    real_mel_A_fig = get_mel_spectrogram_fig(
-                        real_A[0].detach().cpu())
-                    fake_mel_A_fig = get_mel_spectrogram_fig(
-                        generated_A[0].detach().cpu())
-                    real_mel_B_fig = get_mel_spectrogram_fig(
-                        real_B[0].detach().cpu())
-                    fake_mel_B_fig = get_mel_spectrogram_fig(
-                        generated_B[0].detach().cpu())
-                    self.logger.visualize_outputs({"real_A_spec": real_mel_A_fig, "fake_B_spec": fake_mel_B_fig,
-                                                   "real_B_spec": real_mel_B_fig, "fake_A_spec": fake_mel_A_fig})
+                    # real_mel_A_fig = get_mel_spectrogram_fig(
+                    #     real_A[0].detach().cpu())
+                    # fake_mel_A_fig = get_mel_spectrogram_fig(
+                    #     generated_A[0].detach().cpu())
+                    # real_mel_B_fig = get_mel_spectrogram_fig(
+                    #     real_B[0].detach().cpu())
+                    # fake_mel_B_fig = get_mel_spectrogram_fig(
+                    #     generated_B[0].detach().cpu())
+                    # self.logger.visualize_outputs({"real_A_spec": real_mel_A_fig, "fake_B_spec": fake_mel_B_fig,
+                    #                                "real_B_spec": real_mel_B_fig, "fake_A_spec": fake_mel_A_fig})
 
                     # Convert Mel-spectrograms from validation set to waveform and log to tensorboard
                     real_mel_full_A, real_mel_full_B = next(

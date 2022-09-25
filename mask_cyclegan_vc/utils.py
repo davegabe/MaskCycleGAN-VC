@@ -13,10 +13,9 @@ import torch.nn as nn
 import torchaudio
 from torchvision.transforms import ToTensor
 
-import librosa
-import librosa.display
+# import librosa
+# import librosa.display
 
-import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -39,30 +38,30 @@ def decode_melspectrogram(vocoder, melspectrogram, mel_mean, mel_std):
     return rev
 
 
-def get_mel_spectrogram_fig(spec, title="Mel-Spectrogram"):
-    """Generates a figure of the Mel-spectrogram and converts it to a tensor.
+# def get_mel_spectrogram_fig(spec, title="Mel-Spectrogram"):
+#     """Generates a figure of the Mel-spectrogram and converts it to a tensor.
 
-    Args:
-        spec (torch.Tensor): Mel-spectrogram
-        title (str, optional): Figure name. Defaults to "Mel-Spectrogram".
+#     Args:
+#         spec (torch.Tensor): Mel-spectrogram
+#         title (str, optional): Figure name. Defaults to "Mel-Spectrogram".
 
-    Returns:
-        torch.Tensor: Figure as tensor
-    """
-    figure, ax = plt.subplots()
-    canvas = FigureCanvas(figure)
-    S_db = librosa.power_to_db(10**spec.numpy().squeeze(), ref=np.max)
-    img = librosa.display.specshow(S_db, ax=ax, y_axis='log', x_axis='time')
+#     Returns:
+#         torch.Tensor: Figure as tensor
+#     """
+#     figure, ax = plt.subplots()
+#     canvas = FigureCanvas(figure)
+#     S_db = librosa.power_to_db(10**spec.numpy().squeeze(), ref=np.max)
+#     img = librosa.display.specshow(S_db, ax=ax, y_axis='log', x_axis='time')
     
-    buf = io.BytesIO()
-    plt.savefig(buf, format='jpeg')
-    buf.seek(0)
+#     buf = io.BytesIO()
+#     plt.savefig(buf, format='jpeg')
+#     buf.seek(0)
         
-    image = Image.open(buf)
-    image = ToTensor()(image)
+#     image = Image.open(buf)
+#     image = ToTensor()(image)
     
-    plt.close(figure)
-    return image
+#     plt.close(figure)
+#     return image
 
     
             

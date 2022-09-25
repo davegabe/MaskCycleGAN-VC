@@ -2,7 +2,7 @@
 
 import os
 from datetime import datetime
-from tensorboardX import SummaryWriter
+from torch.utils.tensorboard.writer import SummaryWriter
 
 
 class BaseLogger(object):
@@ -13,7 +13,7 @@ class BaseLogger(object):
         batch_size (int): Batch size
         dataset_len (int): Number of samples in the dataset
         save_dir (str): Save directory path
-        summary_writer (tensorboardX.SummaryWriter): Writes entires to event files in args.log_dir
+        summary_writer (torch.utils.tensorboard.writer.SummaryWriter): Writes entires to event files in args.log_dir
         log_path (str): Path to .log file <- not the same as the event file
         epoch (int): Current epoch
         iter (int): Current iteration within epoch
