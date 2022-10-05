@@ -1,48 +1,17 @@
-# MaskCycleGAN-VC
-Unofficial **PyTorch** implementation of Kaneko et al.'s [**MaskCycleGAN-VC**](http://www.kecl.ntt.co.jp/people/kaneko.takuhiro/projects/maskcyclegan-vc/index.html) (2021) for non-parallel voice conversion.
-
-MaskCycleGAN-VC is the state of the art method for non-parallel voice conversion using CycleGAN. It is trained using a novel auxiliary task of filling in frames (FIF) by applying a temporal mask to the input Mel-spectrogram. It demonstrates marked improvements over prior models such as CycleGAN-VC (2018), CycleGAN-VC2 (2019), and CycleGAN-VC3 (2020).
-
-<p align="center">
-<img src="imgs/MaskedCycleGAN-VC.png" width="500">
-<br>
-<b>Figure1: MaskCycleGAN-VC Training</b>
-<br><br><br><br>
-</p>
-
-<p align="center">
-<img src="imgs/generator.png" width="800">
-<br>
-<b>Figure2: MaskCycleGAN-VC Generator Architecture</b>
-<br><br><br><br>
-</p>
-
-<p align="center">
-<img src="imgs/discriminator.png" width="500">
-<br>
-<b>Figure3: MaskCycleGAN-VC PatchGAN Discriminator Architecture</b>
-<br><br><br><br>
-</p>
-
-Paper: https://arxiv.org/pdf/2102.12841.pdf
-
-Repository Contributors: [Claire Pajot](https://github.com/cmpajot), [Hikaru Hotta](https://github.com/HikaruHotta), [Sofian Zalouk](https://github.com/szalouk)
-
+# MaskCycleGAN-SWS-VC
+Implementation of MaskCycleGAN-VC using Sine-wave Speech (SWS) as input.
 
 ## Setup
-
-Clone the repository.
-
-```
-git clone git@github.com:GANtastic3/MaskCycleGAN-VC.git
-cd MaskCycleGAN-VC
-```
-
-Create the conda environment.
 ```
 conda env create -f environment.yml
-conda activate MaskCycleGAN-VC
+conda activate MaskCycleGAN-SWS-VC
 ```
+
+## Usage
+It's recommended to use the main.py script to run the code.
+- main.py: Download the preprocessed data, train and test all the models (for the 4 different conversions).
+
+Otherwise use the following procedure.
 
 ## VCC2018 Dataset
 
